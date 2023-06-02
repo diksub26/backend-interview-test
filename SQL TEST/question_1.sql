@@ -1,0 +1,1 @@
+select urutan_periode from example order by urutan_periode asc;
