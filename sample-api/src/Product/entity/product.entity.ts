@@ -1,21 +1,21 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToOne,JoinColumn } from 'typeorm';
-import { CategoryProducts } from './CategoryProducts.entity';
+import { CategoryProduct } from './category-product.entity';
 
 @Entity()
-export class Products {
+export class Product {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column()
     name: string;
 
-    @OneToOne(() => CategoryProducts)
+    @OneToOne(() => CategoryProduct)
     @JoinColumn()
-    category: string;
+    category: CategoryProduct;
 
-    @Column()
+    @Column('int')
     qty: number;
 
-    @Column()
+    @Column('int')
     price: number;
 }
