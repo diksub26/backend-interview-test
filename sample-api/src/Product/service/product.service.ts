@@ -16,7 +16,7 @@ export class ProductService {
     ) {}
 
     async create(createProductDto : CreateProductDto) : Promise<Product>{
-        const categoryProduct = await this.categoryProductService.findById(createProductDto.categoryId)
+        await this.categoryProductService.findById(createProductDto.categoryId)
         const product = new Product()
         product.id = uuidv4();
         product.name = createProductDto.name
