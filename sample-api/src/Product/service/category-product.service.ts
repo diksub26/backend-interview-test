@@ -13,8 +13,8 @@ export class CategoryProductService {
         private readonly categoryProductRepository: Repository<CategoryProduct>
     ) {}
 
-    findById(id: number) : Promise<CategoryProduct>{
-        const categoryProduct = this.categoryProductRepository.findOneBy({id: id})
+    async findById(id: number) : Promise<CategoryProduct>{
+        const categoryProduct = await this.categoryProductRepository.findOneBy({id: id})
 
         if(!categoryProduct) throw new BadRequestException(["Category Product Not Found"])
 
